@@ -123,6 +123,46 @@
           }
         }
       }
+    },
+    "ngx-private-components": {
+      "projectType": "library",
+      "root": "projects/ngx-private-components",
+      "sourceRoot": "projects/ngx-private-components/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-private-components/tsconfig.lib.json",
+            "project": "projects/ngx-private-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-private-components/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-private-components/src/test.ts",
+            "tsConfig": "projects/ngx-private-components/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-private-components/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-private-components/tsconfig.lib.json",
+              "projects/ngx-private-components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "vso-angular-lib"
 }
